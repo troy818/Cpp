@@ -1,0 +1,35 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+
+vector<int> twoSum(vector<int> &nums, int target) {
+	int n = nums.size();
+	vector<int> result = {};
+	for (int i = 0; i < n; i++) {
+		for (int j = i + 1; j < n; j++) {
+			if (nums[i] == target - nums[j]) {
+				result.push_back(i);
+				result.push_back(j);
+				return result;
+			}
+		}
+	}
+	return result;
+}
+
+int main() {
+	vector<int> num = { 2,3,5,7,8 };
+	vector<int> result = {};
+	//int target = 16;
+	int target;
+	cout << "请输入target:";
+	cin >> target;
+	result = twoSum(num, target);
+	if (result.empty())
+		cout << "the target can not be found" << endl;
+	else {
+		cout << "the first index is:" << result[0] << endl;
+		cout << "the second index is:" << result[1] << endl;
+	}
+
+}
